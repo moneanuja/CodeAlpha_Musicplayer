@@ -53,3 +53,6 @@ Simply open index.html in any modern browser.
 [ ] Repeat/Loop: Allow users to loop a single track or the entire playlist.
 
 [ ] LocalStorage: Remember the last played song and volume level on refresh.
+
+## Author:
+Anuja Mone
