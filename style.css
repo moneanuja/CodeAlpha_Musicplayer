@@ -1,0 +1,152 @@
+/* 1. Reset and Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #240b36, #161623);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* 2. Main Player Container */
+.player-container {
+    display: flex;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 35px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    max-width: 800px;
+    width: 95%;
+}
+
+/* 3. Music Player Section (Centering Content) */
+.music-player {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers everything horizontally */
+    justify-content: center;
+}
+
+/* 1. The Main "Glowy" Album Art Box */
+.album-art {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #ff007f, #7f00ff);
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem; /* For the music icon */
+    color: white;
+    /* This creates the glowing neon effect */
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.4); 
+    margin-bottom: 25px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* 2. Adding the glowing effect behind the container */
+.album-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 25px;
+    background: inherit;
+    filter: blur(20px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* 3. The Music Player layout */
+.music-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    padding: 20px;
+}
+
+/* 4. Glassmorphism for the buttons to match your screenshot */
+.controls button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 15px;
+    padding: 15px 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.controls button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+/* 5. Song Details */
+.song-details { text-align: center; margin-bottom: 20px; }
+.song-details h2 { font-size: 1.4rem; }
+.song-details h3 { font-size: 0.9rem; color: #aaa; margin-top: 5px; }
+
+/* 6. Controls */
+.controls { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+.controls button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.controls button:hover { background: rgba(255, 255, 255, 0.2); }
+.controls .play-btn { background: #ff007f; width: 60px; height: 60px; font-size: 1.2rem; }
+
+/* 7. Playlist Section */
+.playlist-card {
+    flex: 1.5;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+}
+
+#playlist-tracks {
+    list-style: none;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+#playlist-tracks li {
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#playlist-tracks li:hover { background: rgba(255, 255, 255, 0.1); }
+#playlist-tracks li.active-track { background: rgba(255, 0, 127, 0.2); border-left: 4px solid #ff007f; }
+
+/* 8. Scrollbar */
+#playlist-tracks::-webkit-scrollbar { width: 5px; }
+#playlist-tracks::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+
+/* 9. Responsive */
+@media (max-width: 650px) {
+    .player-container { flex-direction: column; }
+    .playlist-card { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 20px 0 0 0; }
+}
